@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head id="head">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -20,7 +21,8 @@
 				<td colspan="2" style="font-weight: bold;">Available Servlets:</td>
 			</tr>
 			<tr>
-				<td><a href="samplegoyuninfo">SampleGoyunInfo</a></td>
+				<td><a href="samplegoyuninfo">SampleGoyunInfo</a>
+				</td>
 			</tr>
 		</table>
 
@@ -29,6 +31,34 @@
 				value="You are now up and running with JavaServer Faces 2.0 on the Google App Engine." />
 		</p>
 		<p>#{bean1.hello}</p>
+
+		<p>
+
+			<h:panelGrid columns="1" cellpadding="5">
+				<p:commandButton id="basic" value="Basic" onclick="dlg1.show();"
+					type="button" />
+
+				<p:commandButton value="Modal" onclick="dlg2.show();" type="button" />
+
+				<p:commandButton value="Effects" onclick="dlg3.show();"
+					type="button" />
+			</h:panelGrid>
+
+			<p:dialog header="Basic Dialog" widgetVar="dlg1">
+				<h:outputText value="Resistance to PrimeFaces is futile!" />
+			</p:dialog>
+
+			<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true"
+				height="100">
+				<h:outputText value="This is a Modal Dialog." />
+			</p:dialog>
+
+			<p:dialog header="Effects" widgetVar="dlg3" showEffect="explode"
+				hideEffect="explode" height="100">
+				<h:outputText value="This dialog has nice effects." />
+			</p:dialog>
+
+		</p>
 	</f:view>
 </h:body>
 </html>
